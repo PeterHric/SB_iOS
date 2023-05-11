@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Reflection.Emit;
-
-using Xamarin.Essentials;
+﻿using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms;
 using System;
@@ -40,7 +37,7 @@ namespace MyWebApp
                 var errorMessage = "<html><body><h1>Chyba: Nie je k dispozícii pripojenie k internetu.</h1></body></html>";
                 var errorUrl = "https://www.google.com/";
                 TheWebView.Source = errorMessage;
-                NavigationPage.SetTitleView(this, new Label { Text = "Chyba: Nie je k dispozícii pripojenie k internetu.", TextColor = Color.White });
+                NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Chyba: Nie je k dispozícii pripojenie k internetu.", TextColor = Xamarin.Forms.Color.White });
                 ToolbarItems.Add(new ToolbarItem("Info", "", async () => await Browser.OpenAsync(errorUrl, BrowserLaunchMode.SystemPreferred)));
             }
         }
@@ -68,6 +65,11 @@ namespace MyWebApp
             }
 
             return false;
+        }
+
+        private void Info_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Informácia", "Táto aplikácia sa pripája na https://ucenie.smartbooks.sk/ a zobrazuje jej rovnaký obsah. Pre pomoc sa obrátťe na podporu https://www.smartbooks.sk", "OK");
         }
     }
 }
